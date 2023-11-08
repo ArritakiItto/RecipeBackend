@@ -16,6 +16,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api', userRoutes);
 app.use('/api', apiRoutes); 
 
+app.get('/', (req, res) => {
+  res.send('Backend is running.');
+});
+
 const PORT = 4000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
