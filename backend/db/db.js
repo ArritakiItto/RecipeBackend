@@ -4,11 +4,11 @@ const { Pool } = require('pg');
 
 // Create a new pool of connections for the database
 const pool = new Pool({
-  user: 'kale',
-  host: 'localhost',
-  database: 'virtual_cookbook',
-  // password: 'your_password',
-  port: 5432,
+  user: process.env.DB_USER || 'kale',
+  host: process.env.DB_HOST || 'localhost',
+  database: process.env.DB_NAME || 'virtual_cookbook',
+  password: process.env.DB_PASSWORD, // set this in Render environment variables
+  port: process.env.DB_PORT || 5432,
 });
 
 // Function to insert a recipe into the database
